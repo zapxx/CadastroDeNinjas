@@ -1,6 +1,9 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 //Entity transforma uma classe comum em uma entitade no banco de dados
 //JPA = Java Persistency API
@@ -8,12 +11,21 @@ import jakarta.persistence.*;
 @Table(name = "tb_cadastro")
 public class NinjaModel {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
+
+    //@ManyToOne - Um ninja tem uma única missão
+    @ManyToOne
+    @JoinColumn(name = "Missoes_id")
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }

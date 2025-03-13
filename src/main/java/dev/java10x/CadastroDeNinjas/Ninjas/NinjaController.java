@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class NinjaController {
 
-    @GetMapping ("/boasvindas")
+    @GetMapping ("/boasvindas") // Colocar "/" antes
     public String boasVindas () {
         return "Essa é minha primeira mensagem nessa rota";
     }
+
+
 }
